@@ -1,6 +1,7 @@
 let slider;
 let brushSize;
 let brushColor;
+let shapeColor;
 let eraserActive = false;
 
 let colorPalette = [];
@@ -17,68 +18,63 @@ let ellipsePosX, ellipsePosY;
 let clearCanvasBtn;
 
 
-let div1=document.getElementById("drawing-area");
 
 function setup() {
-  console.log("start");
 
-  let canvasheight=windowHeight-16;
+  let canvasHeight = windowHeight-16;
 
-  let c=createCanvas(windowWidth, canvasheight);
-
-    
+  let c = createCanvas(windowWidth, canvasHeight);
 
   background(255);
 
   slider = createSlider(1, 50, 10);
   slider.style('width', '80px');
-  slider.position(0, height + 10)
   slider.size(200);
-
+  
   colorPicker = createColorPicker('#ed225d');
-  colorPicker.position(0, height + 35);
 
-  eraserCheckbox = createCheckbox("Eraser", false);
-  eraserCheckbox.position(60, height + 35);
-  eraserCheckbox.changed(activateEraser);
 
-  saveImageButton = createButton("Download");
-  saveImageButton.position(140, height + 35);
-  saveImageButton.mousePressed(saveImage);
-
-  addToPaletteBtn = createButton("Add Color to Palette");
-  addToPaletteBtn.position(220, height + 35);
-  addToPaletteBtn.mousePressed(addToPalette);
-
-  rectCheckbox = createCheckbox("RectangleTool", false);
-  rectCheckbox.position(60, height + 55);
-  rectCheckbox.changed(activateRect);
   rectMode(CORNERS);
-
-  ellipseCheckbox = createCheckbox("EllipseTool", false);
-  ellipseCheckbox.position(60, height + 75);
-  ellipseCheckbox.changed(activateEllipse);
   ellipseMode(CORNERS);
-
-  clearCanvasBtn = createButton("Clear");
-  clearCanvasBtn.position(360, height + 35);
-  clearCanvasBtn.mousePressed(clearCanvas);
-
-
+   
   c.parent("drawing-area");
+  
+  slider.parent("brushSizeDropdown");
+  slider.position(0,0,"relative");  
 
+  colorPicker.parent("colorSelectionDropdown");
+  colorPicker.size();
+  colorPicker.position(0,0,"relative");
+  colorPicker.style("margin")
 
 }
 
-function activateEraser() {
-  if (this.checked()) {
-    console.log("Eraser Active")
-    eraserActive = true;
-  } else {
-    eraserActive = false;
+function activateTool(tool){
+
+  if(tool=='brush'){
+    eraserActive=false;
+    rectActive=false;
+    ellipseActive=false;
+  }
+ else if(tool=='eraser'){
+    eraserActive=true;
+    rectActive=false;
+    ellipseActive=false;
+  }
+ else if(tool=='rect'){
+    eraserActive=false;
+    rectActive=true;
+    ellipseActive=false;
+  }
+ else if(tool=='ellipse'){
+    
+    eraserActive=false;
+    rectActive=false;
+    ellipseActive=true;
   }
 
 }
+
 
 function updateBrushColor() {
   if (eraserActive) {
@@ -92,34 +88,10 @@ function saveImage() {
   saveCanvas("Drawing", "jpg");
 }
 
-function addToPalette() {
-  colorPalette.push(brushColor);
-  console.log("Added Color To palette successfully")
-  addToPaletteBtn.style(`border-color:${brushColor.toString()}`);
-}
-
-function activateRect() {
-  if (this.checked()) {
-    console.log("Rectangle Active")
-    rectActive = true;
-  } else {
-    rectActive = false;
-  }
-}
-
-function activateEllipse() {
-  if (this.checked()) {
-    console.log("Ellipse Active")
-    ellipseActive = true;
-  } else {
-    ellipseActive = false;
-  }
-}
 
 function clearCanvas() {
   background(255);
 }
-
 
 
 function draw() {
@@ -127,9 +99,8 @@ function draw() {
   updateBrushColor();
   strokeWeight(brushSize);
   stroke(brushColor);
+
   fill(brushColor);
-
-
 
   if (mouseIsPressed) {
     if (!rectActive && !ellipseActive) {
