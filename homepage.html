@@ -1,9 +1,12 @@
 
+<script src="sketch.js"></script>
 <script>
   function Alertfunction() {
     alert("This page is optimised for DESKTOP. Many Features May not work in other devices");
   }
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
 
 
 <!DOCTYPE html>
@@ -24,15 +27,15 @@
               <a class="dropbtn">Tools</a>
               <div class="dropdown-content">
                 <a onclick="">Brush</a>
-                <a onclick="">Eraser</a>
+                <a onclick="activateEraser()">Eraser</a>
               </div>
             </li>
 
             <li class="dropdown">
                 <a class="dropbtn">Shapes</a>
                 <div class="dropdown-content">
-                  <a onclick="">Circle</a>
-                  <a onclick="">Rectangle</a>
+                  <a onclick="activateEllipse()">Circle</a>
+                  <a onclick="activateRect()">Rectangle</a>
                 </div>
               </li>
 
@@ -44,7 +47,7 @@
               <li class="dropdown">
                 <a class="dropbtn">Colors</a>
                 <div class="dropdown-content">
-                  <a onclick="">Palette</a>
+                  <a onclick="addToPalette()">Palette</a>
                 </div>
               </li>
 
@@ -54,12 +57,12 @@
               </li>
 
               <li class="dropdown">
-                <a class="dropbtn" onclick="">Download Image</a>
+                <a class="dropbtn" onclick="saveImage()">Download Image</a>
                 <div class="dropdown-content"></div>   
               </li>
 
               <li class="dropdown">
-                <a class="dropbtn" onclick="">Clear Screen</a>
+                <a class="dropbtn" onclick="clearCanvas()">Clear Screen</a>
                 <div class="dropdown-content"></div>   
               </li>
 
@@ -72,6 +75,11 @@
               </li>            
               
         </ul>
+
+        <div id="drawing-area">
+
+        </div>
+         
 
     </div>
 
