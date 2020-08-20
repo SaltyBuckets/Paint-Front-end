@@ -1,3 +1,11 @@
+
+<script>
+  function Alertfunction() {
+    alert("This page is optimised for DESKTOP. Many Features May not work in other devices");
+  }
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,52 +14,60 @@
     <title>Paint</title>
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body onload="Alertfunction()">
     
     <div class="main-div">
 
         <ul>
 
             <li class="dropdown">
-              <a href="" class="dropbtn">Tools</a>
+              <a class="dropbtn">Tools</a>
               <div class="dropdown-content">
-                <a href="" onclick="">Brush</a>
-                <a href="" onclick="">Eraser</a>
-                <a href="" onclick="">Fill Bucket</a>
+                <a onclick="">Brush</a>
+                <a onclick="">Eraser</a>
               </div>
             </li>
 
             <li class="dropdown">
-                <a href="" class="dropbtn">Shapes</a>
+                <a class="dropbtn">Shapes</a>
                 <div class="dropdown-content">
-                  <a href="" onclick="">Circle</a>
-                  <a href="" onclick="">Rectangle</a>
-                  <a href="" onclick="">Triangle</a>
+                  <a onclick="">Circle</a>
+                  <a onclick="">Rectangle</a>
                 </div>
               </li>
 
               <li class="dropdown">
-                <a href="" class="dropbtn">Colors</a>
-                <div class="dropdown-content">
-                  <a href="" onclick="">Palette</a>
-                </div>
-              </li>
-
-              <li class="dropdown">
-                <a href="" class="dropbtn" onclick="">Color Selection</a>
-                <div class="dropdown-content"></div>            
-              </li>
-
-              <li class="dropdown">
-                <a href="" class="dropbtn" onclick="">Download Image</a>
+                <a class="dropbtn" onclick="">Brush Size</a>
                 <div class="dropdown-content"></div>   
               </li>
 
               <li class="dropdown">
-                <a href="" class="dropbtn">About Us</a>
+                <a class="dropbtn">Colors</a>
                 <div class="dropdown-content">
-                  <a href="" onclick="">Created By - Sanchit Verma & Vibhor Jaiswal</a>
-                  <a href="" onclick="">Branch - IT(3rd Sem)</a>
+                  <a onclick="">Palette</a>
+                </div>
+              </li>
+
+              <li class="dropdown">
+                <a class="dropbtn" onclick="">Color Selection</a>
+                <div class="dropdown-content"></div>            
+              </li>
+
+              <li class="dropdown">
+                <a class="dropbtn" onclick="">Download Image</a>
+                <div class="dropdown-content"></div>   
+              </li>
+
+              <li class="dropdown">
+                <a class="dropbtn" onclick="">Clear Screen</a>
+                <div class="dropdown-content"></div>   
+              </li>
+
+              <li class="dropdown">
+                <a class="dropbtn">About Us</a>
+                <div class="dropdown-content">
+                  <a onclick="">Created By - Sanchit Verma & Vibhor Jaiswal</a>
+                  <a onclick="">Branch - IT(3rd Sem)</a>
                 </div>
               </li>            
               
