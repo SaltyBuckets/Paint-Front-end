@@ -4,7 +4,10 @@ html,body{
 
 .main-div{
     height: 100%;
-    border: 1px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 0px;
     border-color: black;
     border-style: solid;
 }
@@ -83,4 +86,13 @@ ul {
   -o-transition:all 0.3s linear;
   -moz-transition:all 0.3s linear; 
   -webkit-transition:all 0.3s linear;
+}
+
+
+#drawing-area{
+  height: 100%;
+  margin: 0%;
+  
+
+  
 }
