@@ -64,13 +64,14 @@ ul {
  /* Here Animation Starts*/
 
 
-   .dropdown  .dropdown-content{
+.dropdown  .dropdown-content{
     transition:opacity 0.2s 0.01s ease-in-out, left 0.2s 0.1s ease-out, visibility 0.1s 0.1s linear;
     -o-transition:opacity 0.2s 0.01s ease-in-out, left 0.2s 0.1s ease-out, visibility 0.1s 0.1s linear;
     -moz-transition:opacity 0.2s 0.01s ease-in-out, left 0.2s 0.1s ease-out, visibility 0.1s 0.1s linear;
   -webkit-transition:opacity 0.2s 0.01s ease-in-out, left 0.2s 0.1s ease-out, visibility 0.1s 0.1s linear;
 }
- .dropdown :hover > ul {
+
+.dropdown :hover > ul {
     visibility:visible;
     position:absolute;
     left:-232px;                             /* CHROME, SAFARI */
@@ -83,4 +84,3 @@ ul {
   -moz-transition:all 0.3s linear; 
   -webkit-transition:all 0.3s linear;
 }
-
